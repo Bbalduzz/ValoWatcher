@@ -43,6 +43,7 @@
  2) install the needed modules
     - install manually with `pip install`
     - install by `requirements.txt` with `pip install -r requirements.txt`
+ 3) run `gui.py` once inside GUI folder
    
  ## 🧱 Contributions 
 Everything is welcomed :) If u want to add something and improve this tool just make a pull request and i'll check it
