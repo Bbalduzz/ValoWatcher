@@ -5,14 +5,6 @@ import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
 import variables
 
-# account switcher imports #
-import os
-import configparser
-config = configparser.ConfigParser()		
-parentdir = os.path.dirname(__file__)
-os.path.abspath(os.path.join(parentdir, os.pardir))
-config.read("/".join([parentdir,"config.ini"]))
-
 # gui imports
 from rich.table import Table
 from rich.layout import Layout
