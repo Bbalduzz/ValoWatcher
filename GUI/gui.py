@@ -57,7 +57,7 @@ def print_banner() -> Panel:
 
 def show_player_infos() -> Panel:
     info_sub_title = Panel(
-        Align.center(Text(f'Region: EU\nRank: {retrive_rank()[0]}\nMMR: {variables.mmr}', justify="center", style='bold')),
+        Align.center(Text(f'Region: {variables.needs[3].upper()}\nRank: {retrive_rank()[0]}\nMMR: {variables.mmr}', justify="center", style='bold')),
         box=box.ROUNDED,
         padding=(1, 2),
         title="[b red]Info",
