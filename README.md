@@ -21,7 +21,7 @@
    - Daily Shop
    - NightMarket (if available)
  - Last **competitive matches updates**
- - **Account Manager** (launcher)
+ - **Account Manager** (launcher) --> 📐 debugging in progress (available soon)
  - **Supports 2FA Auth**. Stay safe out there.
  
  <img width="1194" alt="Screenshot 2022-10-07 at 19 48 59" src="https://user-images.githubusercontent.com/81587335/194698195-36422c6c-983b-4ece-9263-7428c7675fb5.png">
