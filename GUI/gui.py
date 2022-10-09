@@ -1,9 +1,8 @@
 # local imports #
-from decimal import Rounded
-from logging.config import valid_ident
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
 import variables
+import modules.launcher as launcher
 
 # gui imports
 from rich.table import Table
@@ -174,7 +173,7 @@ def show_matches_stat() -> Panel:
     return matches_stats
 
 def launcher_message() -> str:
-    message = f'Lauch [b red]VALORANT[/b red] as [b red]{variables.playerID}[/b red]. Press [b red] SHIFT + L [/b red]to launch'
+    message = f'Lauch [b red]VALORANT[/b red] as [b red]{variables.playerID}[/b red]. Press[b red] SHIFT + CTRL [/b red]to launch'
     return message
 def show_laucher() -> Panel:
     launcher = Panel(
@@ -222,3 +221,5 @@ layout['footer'].update(show_laucher())
 
 clean()
 print(layout)
+
+launcher.LogIn(variables.acc_id)
