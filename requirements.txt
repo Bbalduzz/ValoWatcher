@@ -1,8 +1,5 @@
 requests 
-ssl
 urllib3
-collections
-re
 rich
 configparser
 prettytable
