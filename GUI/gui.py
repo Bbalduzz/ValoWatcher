@@ -2,7 +2,7 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
 import variables
-import modules.launcher as launcher
+import launcher
 
 # gui imports
 from rich.table import Table
