@@ -222,4 +222,4 @@ layout['footer'].update(show_laucher())
 clean()
 print(layout)
 
-launcher.LogIn(variables.acc_id)
+launcher.LogIn()
