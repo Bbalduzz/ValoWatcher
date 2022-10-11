@@ -17,7 +17,7 @@ from prettytable import PrettyTable
 x = PrettyTable()
 
 def choose_account():
-    global username, password, region
+    global choice, username, password, region
     accounts = config.sections()
     usernames = [config[a]['riot_username'] for a in accounts]
     ids = [i for i in range(len(usernames))]
@@ -37,6 +37,7 @@ def choose_account():
 
 ## account & infos ##
 acc =  choose_account()
+acc_id = choice
 needs = Auth(acc) # get the token, entitlement and puuid
 
 ## data ##
