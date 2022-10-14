@@ -24,5 +24,7 @@ def GetNightMarket(needs):
             nm_skins_id.append('NONE')
         for i in range(6):
             nm_price.append('NONE')
-
-    return get_nightmarket_skins(nm_skins_id, nm_price)
+    if nm_skins_id[0] == 'NONE':
+        return 'NONE'
+    else:
+        return get_nightmarket_skins(nm_skins_id, nm_price)
