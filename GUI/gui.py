@@ -2,7 +2,14 @@
 import sys, os
 sys.path.append(os.path.abspath(os.path.join('..')))
 import variables
-import launcher
+
+# account switcher imports #
+import os
+import configparser
+config = configparser.ConfigParser()		
+parentdir = os.path.dirname(__file__)
+os.path.abspath(os.path.join(parentdir, os.pardir))
+config.read("/".join([parentdir,"config.ini"]))
 
 # gui imports
 from rich.table import Table
@@ -90,15 +97,19 @@ def table_shop():
     table_one.add_column('Price', justify='center')
     for item in variables.store:
         table_one.add_row(item, str(variables.full_store[item]))
-
-    table_two = Table(box=box.HORIZONTALS, title='Night Market', expand=True, show_header=True, header_style='bold #2070b2')
-    table_two.add_column('Offer', justify='left')
-    table_two.add_column('Price', justify='center')
-    for item in variables.nightmarket_store:
-        table_two.add_row(item, str(variables.nightmarket_store[item]))
+    if variables.nightmarket_store == 'NONE':
+        pass
+    else:
+        table_two = Table(box=box.HORIZONTALS, title='Night Market', expand=True, show_header=True, header_style='bold #2070b2')
+        table_two.add_column('Offer', justify='left')
+        table_two.add_column('Price', justify='center')
+        for item in variables.nightmarket_store:
+            table_two.add_row(item, str(variables.nightmarket_store[item]))
 
     store_table = Table(box=None, expand=True, show_header=True, header_style='bold #2070b2')
-    store_table.add_row(table_one, table_two)
+    if variables.nightmarket_store == 'NONE':
+        store_table.add_row(table_one)
+    else: store_table.add_row(table_one, table_two)
 
     return store_table
 
@@ -173,7 +184,7 @@ def show_matches_stat() -> Panel:
     return matches_stats
 
 def launcher_message() -> str:
-    message = f'Lauch [b red]VALORANT[/b red] as [b red]{variables.playerID}[/b red]. Press[b red] SHIFT + CTRL [/b red]to launch'
+    message = f'Lauch [b red]VALORANT[/b red] as [b red]{variables.playerID}[/b red]. Press [b red] SHIFT + L [/b red]to launch'
     return message
 def show_laucher() -> Panel:
     launcher = Panel(
@@ -221,5 +232,3 @@ layout['footer'].update(show_laucher())
 
 clean()
 print(layout)
-
-launcher.LogIn()
