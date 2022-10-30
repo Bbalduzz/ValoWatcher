@@ -176,7 +176,7 @@ def show_matches_stat() -> Panel:
     return matches_stats
 
 def launcher_message() -> str:
-    message = f'Lauch [b red]VALORANT[/b red] as [b red]{variables.playerID}[/b red]. Press [b red] SHIFT + L [/b red]to launch'
+    message = f'Lauch [b red]VALORANT[/b red] as [b red]{variables.playerID}[/b red]. Press [b red] SHIFT + CTRL [/b red]to launch'
     return message
 def show_laucher() -> Panel:
     launcher = Panel(
