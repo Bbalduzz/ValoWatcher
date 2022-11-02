@@ -13,13 +13,14 @@ class TLSAdapter(HTTPAdapter):
                                        ssl_version=PROTOCOL_TLSv1_2)
 
 def Auth(line):
+    user_agent = 'RiotClient/60.0.3.4751956.4749685 rso-auth (Windows;10;;Professional, x64)'
     username = line.split(":")[0].replace('\n', '')
     password = line.split(":")[1].replace('\n', '')
     region = line.split(":")[2].replace('\n', '')
     headers = OrderedDict({
         "Accept-Language": "en-US,en;q=0.9",
         "Accept": "application/json, text/plain, */*",
-        'User-Agent': 'RiotClient/58.0.0.4640299.4552318 rso-auth (Windows;10;;Professional, x64)'
+        'User-Agent': user_agent
     })
     session = sesh()
     session.headers = headers #type:ignore
@@ -33,7 +34,7 @@ def Auth(line):
     }
     headers = {
         'Content-Type': 'application/json',
-        'User-Agent': 'RiotClient/58.0.0.4640299.4552318 rso-auth (Windows;10;;Professional, x64)',
+        'User-Agent': user_agent
     }
     r = session.post(f'https://auth.riotgames.com/api/v1/authorization', json=data, headers=headers)
     data = {
@@ -68,7 +69,7 @@ def Auth(line):
         else:
             print('Failed')
     headers = {
-        'User-Agent': 'RiotClient/58.0.0.4640299.4552318 rso-auth (Windows;10;;Professional, x64)',
+        'User-Agent': user_agent,
         'Authorization': f'Bearer {token}',
     }
     r = session.post('https://entitlements.auth.riotgames.com/api/token/v1', headers=headers, json={})
