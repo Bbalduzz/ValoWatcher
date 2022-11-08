@@ -1,5 +1,5 @@
 from modules.mmr import GetMMR
-from modules.auth import Auth
+from modules.auth import *
 from modules.loadout import GetLoadout
 from modules.playercontent import GetPlayerContent
 from modules.store import GetStore, GetStorePrices
@@ -17,7 +17,7 @@ from prettytable import PrettyTable
 x = PrettyTable()
 
 def choose_account():
-    global choice, username, password, region
+    global choice, username, password
     accounts = config.sections()
     usernames = [config[a]['riot_username'] for a in accounts]
     ids = [i for i in range(len(usernames))]
@@ -30,15 +30,14 @@ def choose_account():
     acc = config[f'ACCOUNT{choice+1}']
     username = acc['riot_username']
     password = acc['password']
-    region = acc['region']
 
-    return f'{username}:{password}:{region}'
+    return f'{username}:{password}'
 
 
 ## account & infos ##
 acc =  choose_account()
 acc_id = choice
-needs = Auth(acc) # get the token, entitlement and puuid
+needs =  RiotClient(acc).auth()# get the token, entitlement and puuid and region
 
 ## data ##
 mmr = GetMMR(acc,needs)
@@ -58,18 +57,3 @@ matches_results, competitive_matches_results = GetMatches(needs)
 winorlost = matches_results[0]
 agets_played = matches_results[1]
 kills_deaths_assists = matches_results[2]
-
-##### DEBUG
-# print(playerID)
-# print(player_valorantpoints, player_radianite)
-# print(mmr)
-
-# print(loadout)
-
-# for item in store:
-#     print(item, '-->', full_store[item])
-
-# print(player_level, player_xp)
-# print(nightmarket_store)
-
-# print(winorlost)
