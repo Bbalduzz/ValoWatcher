@@ -113,7 +113,6 @@ def show_shop() -> Panel:
         title="[b red] Shop",
         border_style="blue",
     )
-
     return shop_table_panel
 
 def match_table(index) -> Table:
@@ -134,19 +133,25 @@ def single_match_stat(index) -> Panel:
     )
     return single_match
 
+def current_match() -> Panel:
+    current_match = Panel(
+        Align.center('Under Construction'),
+        box=box.ROUNDED,
+        title='[b red] Current Match',
+        border_style='green'
+    )
+    return current_match
+
 def matches_loop() -> Layout:
     matches_layout = Layout(name='matches')
     matches_layout.split(
-        Layout(name='rank', size=3),
+        Layout(name='rank', size=2),
         Layout(name=f'match0', size=3),
         Layout(name=f'match1', size=3),
         Layout(name=f'match2', size=3),
         Layout(name=f'match3', size=3),
         Layout(name=f'match4', size=3),
-        Layout(name=f'match5', size=3),
-        Layout(name=f'match6', size=3),
-        Layout(name=f'match7', size=3),
-        Layout(name=f'match8', size=3),
+        Layout(name='currentmatch', size=12)
     )
     
     matches_layout['rank'].update(Align.center(f'Current Rank: [#{retrive_rank()[1]}]{retrive_rank()[0]}'))
@@ -155,11 +160,7 @@ def matches_loop() -> Layout:
     matches_layout[f'match2'].update(single_match_stat(2))
     matches_layout[f'match3'].update(single_match_stat(3))
     matches_layout[f'match4'].update(single_match_stat(4))
-    matches_layout[f'match5'].update(single_match_stat(5))
-    matches_layout[f'match6'].update(single_match_stat(6))
-    matches_layout[f'match7'].update(single_match_stat(7))
-    matches_layout[f'match8'].update(single_match_stat(8))
-
+    matches_layout['currentmatch'].update(current_match())
     
     return matches_layout
     
@@ -172,7 +173,6 @@ def show_matches_stat() -> Panel:
         title="[b red] Matches",
         border_style="blue",
     )
-
     return matches_stats
 
 def launcher_message() -> str:
