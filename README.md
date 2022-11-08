@@ -32,11 +32,9 @@
  [ACCOUNT1]
  riot_username = your_username_to_log_in
  password = your_password
- region = your_region (eu/na/...)
  [ACCOUNT2]
  riot_username = your_username_to_log_in
  password = your_password
- region = your_region (eu/na/...)
  [ACCOUNT3]
  ...
  ```
