@@ -3,8 +3,9 @@ from requests import post, get
 def get_player_id(needs):
     entitlement = needs[1]
     token = needs[0]
+    user_agent = 'RiotClient/60.0.3.4751956.4749685 rso-auth (Windows;10;;Professional, x64)'
     headers = {
-        'User-Agent': 'RiotClient/58.0.0.4640299.4552318 rso-auth (Windows;10;;Professional, x64)',
+        'User-Agent': user_agent,
         'X-Riot-Entitlements-JWT': entitlement,
         'Authorization': f'Bearer {token}'
     }
