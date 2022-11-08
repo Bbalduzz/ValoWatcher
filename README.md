@@ -42,7 +42,7 @@
     - install manually with `pip install`
     - install by `requirements.txt` with `pip install -r requirements.txt`
  3) Change in `launcher.py` the `RIOTCLIENT_PATH` to the path of your `RiotClientServices.exe`
- 4) run `gui.py` once inside GUI folder
+ 4) run `vw.py` once inside GUI folder
    
  ## 🧱 Contributions 
 Everything is welcomed :) If u want to add something and improve this tool just make a pull request and i'll check it
